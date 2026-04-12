@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disha Rathore — Software Engineer & UI/UX Designer</title>
+  <meta name="description" content="Portfolio of Disha Rathore — B.Tech CSE student at Galgotias University. Software Engineer, UI/UX Designer, Data Analyst, and AI/ML Enthusiast with 670+ LeetCode problems solved." />
+  <meta name="keywords" content="Disha Rathore, Software Engineer, UI/UX Designer, Data Analyst, Frontend Developer, React, Python, LeetCode, Portfolio" />
+  <meta name="author" content="Disha Rathore" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAV
+       ══════════════════════════════════════════ -->
+  <nav id="nav" aria-label="Main navigation">
+    <div class="nav-inner container">
+      <a href="#hero" class="nav-logo" aria-label="DR — Home">
+        <img src="images/profile/profile.jpeg" alt="" style="width:28px; height:28px; border-radius:50%; object-fit:cover; margin-right:8px;" aria-hidden="true">
+        DR<span class="nav-logo-dot">.</span>
+      </a>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#about"        class="nav-link">About</a></li>
+        <li><a href="#skills"       class="nav-link">Skills</a></li>
+        <li><a href="#projects"     class="nav-link">Projects</a></li>
+        <li><a href="#designs"      class="nav-link">Designs</a></li>
+        <li><a href="#stats"        class="nav-link">Stats</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#contact"      class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ══════════════════════════════════════════
+       01 HERO
+       ══════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+    <!-- Grid texture overlay -->
+    <div class="hero-grid" aria-hidden="true"></div>
+    <!-- Glow blob -->
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <!-- Status chip -->
+      <div class="hero-status fade-up" role="status">
+        <span class="hero-status-dot" aria-hidden="true"></span>
+        <span>Open to internships &amp; SDE roles</span>
+      </div>
+
+      <!-- Name -->
+      <h1 class="hero-name fade-up">
+        <span class="hero-name-first">Disha</span>
+        <span class="hero-name-last">Rathore</span>
+      </h1>
+
+      <!-- Typing role -->
+      <p class="hero-role fade-up" aria-live="polite">
+        <span id="typingText"></span><span class="hero-cursor" aria-hidden="true">|</span>
+      </p>
+
+      <!-- Sub-tagline -->
+      <p class="hero-sub fade-up">B.Tech CSE &nbsp;&middot;&nbsp; Galgotias University</p>
+
+      <!-- Stat chips -->
+      <div class="hero-chips fade-up" role="list" aria-label="Highlights">
+        <span class="hero-chip" role="listitem">Problem Solver</span>
+        <span class="hero-chip" role="listitem">Data Analyst</span>
+        <span class="hero-chip" role="listitem">UI/UX Designer</span>
+        <span class="hero-chip" role="listitem">Frontend Developer</span>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-ctas fade-up">
+        <a href="#projects" class="btn btn-primary" id="heroViewProjects">View Projects &#x2193;</a>
+        <a href="#" class="btn btn-ghost" id="heroResume" target="_blank" rel="noopener">Download Resume &#x2197;</a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span class="hero-scroll-label">scroll</span>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════════════════════════════════════
+       02 ABOUT
+       ══════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="aboutTitle">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- LEFT: avatar -->
+        <div class="about-visual fade-up" aria-hidden="true">
+          <div class="about-avatar-wrap">
+            <div class="about-avatar">
+              <img src="images/profile/profile.jpeg" alt="Disha Rathore" style="width:100%; height:100%; object-fit:cover; object-position: center;" />
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: bio -->
+        <div class="about-bio">
+          <span class="eyebrow fade-up">// 01&nbsp;&nbsp;About</span>
+          <h2 id="aboutTitle" class="section-title fade-up">
+            Building systems that <em>matter</em>
+          </h2>
+
+          <p class="about-para fade-up">
+            I'm a 3rd-year B.Tech Computer Science student at Galgotias University with a CGPA of 8.9.
+            My technical skills span Data Structures &amp; Algorithms, Frontend Development, Data Analytics,
+            and DBMS — I enjoy solving real-world problems through technology.
+          </p>
+          <p class="about-para fade-up">
+            I've solved 670+ problems on LeetCode with a 1800+ rating, which has sharpened my analytical
+            thinking, persistence, and ability to approach complex problems systematically.
+          </p>
+          <p class="about-para fade-up">
+            My three-month experience as a freelance frontend developer helped me build a strong
+            user-centric approach — translating client requirements into intuitive designs while writing
+            reliable, well-structured code. Beyond that, I've won three hackathons including HackHound 3.0,
+            where I led my team, and served as an AI/ML Coordinator mentoring 10+ students.
+          </p>
+
+          <div class="about-badges fade-up" role="list" aria-label="Roles and status">
+            <span class="about-badge about-badge--primary" role="listitem">Open to Internships</span>
+            <span class="about-badge" role="listitem">Problem Solver</span>
+            <span class="about-badge" role="listitem">UI/UX Designer</span>
+            <span class="about-badge" role="listitem">Data Analyst</span>
+            <span class="about-badge" role="listitem">Frontend Developer</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       03 SKILLS
+       ══════════════════════════════════════════ -->
+  <section id="skills" aria-labelledby="skillsTitle">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow fade-up">// 02&nbsp;&nbsp;Expertise</span>
+        <h2 id="skillsTitle" class="section-title fade-up">Tech Stack</h2>
+      </div>
+
+      <div class="tech-stack-wrap fade-up">
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java"></div>
+          <span class="tech-stack-name">Java</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"></div>
+          <span class="tech-stack-name">React</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"></div>
+          <span class="tech-stack-name">Python</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"></div>
+          <span class="tech-stack-name">Figma</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" alt="Prometheus"></div>
+          <span class="tech-stack-name">Prometheus</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="Grafana"></div>
+          <span class="tech-stack-name">Grafana</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png" alt="Excel"></div>
+          <span class="tech-stack-name">Excel</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://img.icons8.com/color/48/000000/power-bi.png" alt="Power BI"></div>
+          <span class="tech-stack-name">Power BI</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5"></div>
+          <span class="tech-stack-name">HTML5</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3"></div>
+          <span class="tech-stack-name">CSS3</span>
+        </div>
+        <div class="tech-stack-item">
+          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL"></div>
+          <span class="tech-stack-name">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       04 PROJECTS
+       ══════════════════════════════════════════ -->
+  <section id="projects" aria-labelledby="projectsTitle">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow fade-up">// 03&nbsp;&nbsp;Work</span>
+        <h2 id="projectsTitle" class="section-title fade-up">Featured Projects</h2>
+      </div>
+
+      <!-- Projects Slider -->
+      <div class="projects-slider-wrapper">
+        <div class="projects-slider-track" id="projectsSliderTrack">
+
+          <!-- Slide 1: MOAE -->
+          <article class="project-featured card fade-up" aria-label="Featured project: MOAE">
+            <div class="project-featured-inner">
+              <div class="project-featured-info">
+                <div class="project-meta">
+                  <span class="project-num">01</span>
+                  <span class="project-icon" aria-hidden="true">🤖</span>
+                </div>
+                <h3 class="project-title">Autonomous Multi-Agent<br>Orchestration Engine</h3>
+                <p class="project-desc">
+                  A workflow automation platform that enables users to create, manage, and track automated
+                  workflows efficiently. Designed the system architecture and developed the frontend using
+                  React — built features that let users monitor the progress of each step in a pipeline.
+                </p>
+                <div class="tags">
+                  <span class="tag">React</span>
+                  <span class="tag">System Architecture</span>
+                  <span class="tag">Workflow Automation</span>
+                  <span class="tag">Multi-Agent</span>
+                  <span class="tag">Frontend</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/appledog632/Autonomous-Multi-Agent-Orchestration-Engine"
+                     target="_blank" rel="noopener" class="btn btn-ghost" id="moaeGithub">
+                    GitHub &#x2197;
+                  </a>
+                </div>
+              </div>
+              <img src="images/MOAE/MOAE.jpeg" alt="MOAE Dashboard" class="project-pipeline" style="object-fit: cover; width: 100%; border-radius: var(--radius-md);" />
+            </div>
+          </article>
+
+          <!-- Slide 2: Millie AI -->
+          <article class="project-featured card fade-up" aria-label="Project: Millie AI">
+            <div class="project-featured-inner">
+              <div class="project-featured-info">
+                <div class="project-meta">
+                  <span class="project-num">02</span>
+                  <span class="project-icon" aria-hidden="true">🎙️</span>
+                </div>
+                <h3 class="project-title">Millie AI</h3>
+                <p class="project-desc">
+                  An AI avatar that provides university information through voice-based interaction.
+                  Combines natural language processing with a responsive conversational interface to
+                  assist students with campus queries.
+                </p>
+                <div class="tags">
+                  <span class="tag">AI</span>
+                  <span class="tag">NLP</span>
+                  <span class="tag">Voice Interface</span>
+                  <span class="tag">Avatar</span>
+                  <span class="tag">Frontend</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/appledog632/ai_avatar_unoff"
+                     target="_blank" rel="noopener" class="btn btn-ghost" id="millieGithub">
+                    GitHub &#x2197;
+                  </a>
+                </div>
+              </div>
+              <img src="images/Millie/Millie.jpeg" alt="Millie AI Dashboard" class="project-pipeline" style="object-fit: cover; object-position: center top; width: 100%; max-height: 400px; border-radius: var(--radius-md);" />
+            </div>
+          </article>
+
+          <!-- Slide 3: Customer Satisfaction -->
+          <article class="project-featured card fade-up" aria-label="Project: Customer Satisfaction Prediction">
+            <div class="project-featured-inner">
+              <div class="project-featured-info">
+                <div class="project-meta">
+                  <span class="project-num">03</span>
+                  <span class="project-icon" aria-hidden="true">📊</span>
+                </div>
+                <h3 class="project-title">Customer Satisfaction<br>Prediction &amp; Analysis</h3>
+                <p class="project-desc">
+                  Machine learning model to predict and analyze airline customer satisfaction. Performs
+                  feature engineering, exploratory data analysis, and trains classification models to
+                  identify key satisfaction drivers.
+                </p>
+                <div class="tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Machine Learning</span>
+                  <span class="tag">Data Analysis</span>
+                  <span class="tag">EDA</span>
+                  <span class="tag">Scikit-learn</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/appledog632/Customer-Satisfaction-Prediction-Analysis"
+                     target="_blank" rel="noopener" class="btn btn-ghost" id="custSatGithub">
+                    GitHub &#x2197;
+                  </a>
+                </div>
+              </div>
+              <img src="images/customarSatisfction/customarSatisfction.jpeg" alt="Customer Satisfaction Prediction Dashboard" class="project-pipeline" style="object-fit: cover; width: 100%; border-radius: var(--radius-md);" />
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="slider-controls">
+          <button class="slider-btn prev" id="sliderPrevBtn" aria-label="Previous">&larr;</button>
+          <div class="slider-dots" id="sliderDots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="slider-btn next" id="sliderNextBtn" aria-label="Next">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       05 FIGMA DESIGNS
+       ══════════════════════════════════════════ -->
+  <section id="designs" class="designs-section" aria-labelledby="designsTitle">
+
+    <!-- Static header above sticky zone -->
+    <div class="container designs-header">
+      <span class="eyebrow fade-up">// 04&nbsp;&nbsp;Figma Designs</span>
+      <h2 id="designsTitle" class="section-title fade-up">My Design Work</h2>
+      <p class="section-subtitle fade-up">Scroll to explore — each card expands as you go.</p>
+    </div>
+
+    <!-- Scroll outer container -->
+    <div class="designs-scroll-outer" id="designsScrollOuter">
+      <!-- Sticky inner -->
+      <div class="designs-sticky" id="designsSticky">
+        <!-- Progress bar -->
+        <div class="designs-progress-track" aria-hidden="true">
+          <div class="designs-progress-fill" id="designsProgressFill"></div>
+        </div>
+
+        <div class="container designs-cards-wrap">
+          <div class="designs-cards" id="designsCards">
+
+            <!-- Card 01: Fuel Go -->
+            <div class="design-card" id="designCard0" role="article" aria-label="Design: Fuel Go Delivery App">
+              <div class="design-card-header">
+                <div class="design-card-left">
+                  <span class="design-num">01</span>
+                  <div>
+                    <h3 class="design-title">Fuel Go — Delivery App</h3>
+                    <span class="design-badge" id="designBadge0">Mobile UI</span>
+                  </div>
+                </div>
+                <button class="design-toggle" aria-label="Toggle card" aria-expanded="false"
+                        data-card="0" id="designToggle0">+</button>
+              </div>
+              <div class="design-card-body" id="designBody0" aria-hidden="true">
+                <div class="design-body-inner">
+                  <!-- Description left -->
+                  <div class="design-body-info">
+                    <p class="design-desc">
+                      End-to-end UI design for a fuel delivery mobile app. Covers onboarding, order
+                      placement, real-time tracking, and payment flows — designed with a focus on
+                      speed and usability.
+                    </p>
+                    <div class="tags">
+                      <span class="tag">Figma</span>
+                      <span class="tag">Mobile</span>
+                      <span class="tag">UX Flow</span>
+                      <span class="tag">Prototyping</span>
+                      <span class="tag">Auto Layout</span>
+                    </div>
+                    <div class="design-actions">
+                      <a href="https://www.figma.com/community/file/1625157912479384953"
+                         target="_blank" rel="noopener" class="btn btn-primary" id="fuelGoFigma">
+                        View in Figma &#x2197;
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Preview right (CSS mock) -->
+                  <div class="design-preview" aria-hidden="true">
+                    <div class="design-mock design-mock--mobile">
+                      <div class="mock-mobile-bar">
+                        <span class="mock-icon">📍</span>
+                        <span class="mock-text">Current Location</span>
+                      </div>
+                      <div class="mock-mobile-order">
+                        <div class="mock-order-row">
+                          <span class="mock-emoji">⛽</span>
+                          <span class="mock-label">Unleaded 95</span>
+                          <span class="mock-amt">20L</span>
+                        </div>
+                        <div class="mock-order-row">
+                          <span class="mock-emoji">⛽</span>
+                          <span class="mock-label">Diesel</span>
+                          <span class="mock-amt">40L</span>
+                        </div>
+                      </div>
+                      <div class="mock-mobile-cta">Order Now &#x2192;</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 02: Portfolio Design System -->
+            <div class="design-card" id="designCard1" role="article" aria-label="Design: Portfolio Design System">
+              <div class="design-card-header">
+                <div class="design-card-left">
+                  <span class="design-num">02</span>
+                  <div>
+                    <h3 class="design-title">Personal Portfolio — Design System</h3>
+                    <span class="design-badge" id="designBadge1">Web Design</span>
+                  </div>
+                </div>
+                <button class="design-toggle" aria-label="Toggle card" aria-expanded="false"
+                        data-card="1" id="designToggle1">+</button>
+              </div>
+              <div class="design-card-body" id="designBody1" aria-hidden="true">
+                <div class="design-body-inner">
+                  <div class="design-body-info">
+                    <p class="design-desc">
+                      Full portfolio design system including typography scale, color tokens,
+                      component library, and responsive layouts. Built with consistent auto-layout
+                      and variant components.
+                    </p>
+                    <div class="tags">
+                      <span class="tag">Figma</span>
+                      <span class="tag">Design System</span>
+                      <span class="tag">Components</span>
+                      <span class="tag">Web</span>
+                      <span class="tag">Responsive</span>
+                    </div>
+                    <div class="design-actions">
+                      <a href="https://www.figma.com/community/file/1625163136792063388"
+                         target="_blank" rel="noopener" class="btn btn-primary" id="portfolioDesignFigma">
+                        View in Figma &#x2197;
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Preview: photo -->
+                  <div class="design-preview" aria-hidden="true">
+                    <div style="width: 100%; height: 100%; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--border-md);">
+                      <img src="images/Portfolio/Portfolio.jpeg" alt="Disha Rathore" style="width:100%; height:100%; object-fit:cover; object-position: center top;" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /designs-cards -->
+        </div><!-- /container -->
+      </div><!-- /designs-sticky -->
+    </div><!-- /designs-scroll-outer -->
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       06 CP STATS
+       ══════════════════════════════════════════ -->
+  <section id="stats" aria-labelledby="statsTitle">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow fade-up">// 05&nbsp;&nbsp;Problem Solving</span>
+        <h2 id="statsTitle" class="section-title fade-up">Algorithmic Edge</h2>
+      </div>
+
+      <!-- Wide summary card -->
+      <div class="stats-wide card fade-up">
+        <div class="stats-wide-top">
+          <div class="stats-wide-info">
+            <p class="stats-platform-label">LeetCode + Codeforces</p>
+            <p class="stats-big-num">700+</p>
+            <p class="stats-sub-num">1800+ Rating on LeetCode</p>
+          </div>
+          <div class="stats-wide-links">
+            <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener"
+               class="btn btn-ghost" id="statsLeetCode">LeetCode &#x2197;</a>
+            <a href="https://codeforces.com/profile/DishaRathore" target="_blank" rel="noopener"
+               class="btn btn-ghost" id="statsCodeforces">Codeforces &#x2197;</a>
+          </div>
+        </div>
+        <div class="stats-bar-wrap">
+          <div class="stats-bar-header">
+            <span class="stats-bar-label">Problem Coverage</span>
+            <span class="stats-bar-pct">78%</span>
+          </div>
+          <div class="stats-bar-track">
+            <div class="stats-bar-fill" style="width: 78%" id="statsBarFill"></div>
+          </div>
+        </div>
+        <!-- Topic chips -->
+        <div class="stats-topics">
+          <span class="tag">Arrays</span>
+          <span class="tag">Strings</span>
+          <span class="tag">Binary Search</span>
+          <span class="tag">Sliding Window</span>
+          <span class="tag">Two Pointers</span>
+          <span class="tag">Dynamic Programming</span>
+          <span class="tag">Graphs</span>
+          <span class="tag">Trees</span>
+          <span class="tag">Recursion</span>
+          <span class="tag">Backtracking</span>
+          <span class="tag">Sorting</span>
+          <span class="tag">Hashing</span>
+        </div>
+      </div>
+
+      <!-- 2×2 grid -->
+      <div class="stats-grid">
+
+        <article class="card stats-card fade-up" aria-label="LeetCode stats">
+          <div class="stats-card-icon" style="background:none;">
+            <img src="images/Leetcode/Leetcode.png" alt="LeetCode Logo" style="width:100%; height:100%; object-fit:contain;" />
+          </div>
+          <p class="stats-card-num">700+</p>
+          <p class="stats-card-sub">problems solved · 1800+ rating</p>
+          <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener"
+             class="btn-teal" id="leetCodeLink">LeetCode Profile &#x2197;</a>
+        </article>
+
+        <article class="card stats-card fade-up" aria-label="Codeforces stats">
+          <div class="stats-card-icon" style="background:none;">
+            <img src="images/codeforces/codeforces.png" alt="Codeforces Logo" style="width:100%; height:100%; object-fit:contain;" />
+          </div>
+          <p class="stats-card-num">Active</p>
+          <p class="stats-card-sub">contestant — DishaRathore</p>
+          <a href="https://codeforces.com/profile/DishaRathore" target="_blank" rel="noopener"
+             class="btn-teal" id="codeforcesLink">Codeforces Profile &#x2197;</a>
+        </article>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       07 ACHIEVEMENTS
+       ══════════════════════════════════════════ -->
+  <section id="achievements" aria-labelledby="achievementsTitle">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow fade-up">// 06&nbsp;&nbsp;Recognition</span>
+        <h2 id="achievementsTitle" class="section-title fade-up">Achievements</h2>
+      </div>
+
+      <div class="achievements-grid">
+
+        <article class="card ach-card fade-up" aria-label="CodeWizards 1st Position">
+          <div class="ach-icon" style="background:none;">
+            <img src="images/codewizard/codewizard.jpeg" alt="CodeWizards" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
+          </div>
+          <span class="ach-label">1st Position</span>
+          <h3 class="ach-title">CodeWizards — 2nd Year</h3>
+          <p class="ach-desc">Won 1st position at CodeWizards, demonstrating strong problem-solving and competitive programming skills.</p>
+          <a href="https://www.linkedin.com/posts/disha-rathore-8b3702273_codewizard-hackthonwinner-ai-activity-7290632362898411522-6F93?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAELYlocBXuBnYr9IJKS4XOUM0kE3Nzi7nbk" target="_blank" rel="noopener"
+             class="btn-teal" id="achCodeWizards">View Proof &#x2197;</a>
+        </article>
+
+        <article class="card ach-card fade-up" aria-label="HackHound 3.0 1st Position">
+          <div class="ach-icon" style="background:none;">
+            <img src="images/hack hound/hack hound.jpeg" alt="HackHound" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
+          </div>
+          <span class="ach-label">1st Position — Led Team</span>
+          <h3 class="ach-title">HackHound 3.0 MLH Hackathon</h3>
+          <p class="ach-desc">Led team to 1st position at HackHound 3.0, a Major League Hacking event. Delivered a working solution under tight deadlines — strengthening leadership and team collaboration.</p>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7301263436032659456/" target="_blank" rel="noopener"
+             class="btn-teal" id="achHackHound">View Proof &#x2197;</a>
+        </article>
+
+        <article class="card ach-card fade-up" aria-label="Prayatan Hackathon 3rd Position">
+          <div class="ach-icon" style="background:none;">
+            <img src="images/Prayatana/Prayatana.jpeg" alt="Prayatan" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
+          </div>
+          <span class="ach-label">3rd Position</span>
+          <h3 class="ach-title">Prayatan Hackathon</h3>
+          <p class="ach-desc">Achieved 3rd position at Prayatan, competing against multi-disciplinary teams with an innovative tech solution.</p>
+          <a href="https://www.linkedin.com/posts/disha-rathore-8b3702273_prayatan2-teamcraftingfuture-maranaut-activity-7304383129815764992-_qaD" target="_blank" rel="noopener"
+             class="btn-teal" id="achPrayatan">View Proof &#x2197;</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       08 CONTACT
+       ══════════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contactTitle">
+    <div class="container contact-container">
+      <span class="eyebrow fade-up">// 07&nbsp;&nbsp;Let's Connect</span>
+      <h2 id="contactTitle" class="section-title fade-up">Get in Touch</h2>
+      <p class="contact-subtitle fade-up">Open to internship and SDE opportunities. Let's build something exceptional together.</p>
+
+      <!-- Link buttons -->
+      <div class="contact-links fade-up">
+        <a href="mailto:disharathore632@gmail.com" class="btn btn-primary" id="contactEmail">
+          ✉ Email Me
+        </a>
+        <a href="https://www.linkedin.com/in/disha-rathore-8b3702273" target="_blank" rel="noopener"
+           class="btn btn-ghost" id="contactLinkedIn">LinkedIn &#x2197;</a>
+        <a href="https://github.com/appledog632" target="_blank" rel="noopener"
+           class="btn btn-ghost" id="contactGitHub">GitHub &#x2197;</a>
+        <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener"
+           class="btn btn-ghost" id="contactLeetCode">LeetCode &#x2197;</a>
+      </div>
+
+      <!-- Contact form -->
+      <form class="contact-form card fade-up" id="contactForm" novalidate aria-label="Contact form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formName" class="form-label">Name</label>
+            <input type="text" id="formName" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="formEmail" class="form-label">Email</label>
+            <input type="email" id="formEmail" name="email" class="form-input" placeholder="Your email" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formMessage" class="form-label">Message</label>
+          <textarea id="formMessage" name="message" class="form-input form-textarea" placeholder="Your message…" required rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="formSubmit">
+          Send Message &#x2197;
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2025 Disha Rathore — Built with purpose.</p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="https://github.com/appledog632" target="_blank" rel="noopener" id="footerGitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/disha-rathore-8b3702273" target="_blank" rel="noopener" id="footerLinkedIn">LinkedIn</a>
+        <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener" id="footerLeetCode">LeetCode</a>
+        <a href="#" target="_blank" rel="noopener" id="footerResume">Resume</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
