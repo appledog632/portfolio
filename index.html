@@ -1,1067 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disha Rathore — Software Engineer & UI/UX Designer</title>
-  <meta name="description" content="Portfolio of Disha Rathore — B.Tech CSE student at Galgotias University. Software Engineer, UI/UX Designer, Data Analyst with 700+ LeetCode problems solved." />
-  <meta name="keywords" content="Disha Rathore, Software Engineer, UI/UX Designer, Data Analyst, Front-End Developer, React, Python, LeetCode, Portfolio" />
-  <meta name="author" content="Disha Rathore" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disha Rathore — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF4EC;
+    --bg-soft:#F6E9DC;
+    --panel:#FFFDF9;
+    --ink:#4A2E3A;
+    --ink-soft:#8A6B78;
+    --sakura:#F2AEBB;
+    --sakura-deep:#E8899C;
+    --matcha:#93A876;
+    --gold:#D8A857;
+    --line:#EAD9CC;
+    --seal:#B5473F;
+    --serif:'Shippori Mincho', serif;
+    --sans:'Zen Maru Gothic', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--sakura); color:var(--ink);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
+  #blobs{position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;}
+  .blob{position:absolute; border-radius:50%; filter:blur(70px); opacity:0.55;}
+  .blob1{width:420px; height:420px; background:radial-gradient(circle, var(--sakura), transparent 70%); top:-120px; left:-100px;}
+  .blob2{width:380px; height:380px; background:radial-gradient(circle, #F6D9C4, transparent 70%); top:20%; right:-140px;}
+  .blob3{width:340px; height:340px; background:radial-gradient(circle, var(--matcha), transparent 70%); bottom:-100px; left:20%; opacity:0.3;}
+  .blob4{width:300px; height:300px; background:radial-gradient(circle, var(--gold), transparent 70%); bottom:10%; right:5%; opacity:0.25;}
+
+  #petals{position:fixed; inset:0; pointer-events:none; z-index:5; overflow:hidden;}
+  .petal{
+    position:absolute; top:-30px; width:14px; height:14px;
+    background:var(--sakura);
+    border-radius:0 60% 0 60%;
+    opacity:0.75;
+    animation:fall linear infinite;
+  }
+  @keyframes fall{
+    0%{transform:translateY(0) translateX(0) rotate(0deg); opacity:0.8;}
+    100%{transform:translateY(110vh) translateX(40px) rotate(280deg); opacity:0.4;}
+  }
+
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(251,244,236,0.85); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:72px;}
+  .logo{font-family:var(--serif); font-weight:700; font-size:19px; color:var(--sakura-deep); display:flex; align-items:center; gap:10px;}
+  .logo .mark{
+    width:38px; height:38px; border-radius:50%; background:var(--seal); color:#FBF4EC;
+    display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:13px; font-weight:800;
+    flex-shrink:0; overflow:hidden;
+  }
+  .logo .mark img{width:100%; height:100%; object-fit:cover;}
+  .navlinks{display:flex; gap:30px; font-size:14px; color:var(--ink-soft);}
+  .navlinks a:hover{color:var(--sakura-deep);}
+  @media (max-width:720px){.navlinks{display:none;}}
+
+  header.hero{
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    padding-top:72px; position:relative; z-index:2;
+  }
+  .hero-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:50px; align-items:center;}
+  @media (max-width:800px){.hero-grid{grid-template-columns:1fr;}}
+  .photo-frame{
+    width:100%; max-width:320px; aspect-ratio:1/1; margin:0 auto; position:relative;
+    border-radius:28px; background:linear-gradient(145deg, #FFFDF9, var(--bg-soft));
+    border:2px solid var(--panel); box-shadow:0 0 0 6px rgba(242,174,187,0.25), 0 20px 50px rgba(232,137,156,0.25);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .photo-frame::before{
+    content:''; position:absolute; inset:-2px; border-radius:32px; padding:2px;
+    background:conic-gradient(from 0deg, var(--sakura), var(--gold), var(--matcha), var(--sakura));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude; opacity:0.5; animation:spin 10s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .photo-frame img{width:100%; height:100%; object-fit:cover; border-radius:26px; position:relative; z-index:1;}
+  .photo-frame .placeholder-text{
+    text-align:center; color:var(--ink-soft); font-size:13px; padding:20px; z-index:1;
+  }
+  .photo-frame .placeholder-text .icon{font-size:34px; display:block; margin-bottom:10px;}
+  .eyebrow{
+    font-size:13px; letter-spacing:2px; color:var(--sakura-deep); text-transform:uppercase;
+    margin-bottom:18px; font-weight:700;
+  }
+  h1.name{
+    font-family:var(--serif); font-weight:800; letter-spacing:1px;
+    font-size:clamp(42px,8vw,92px); line-height:1.08; margin-bottom:8px; color:var(--ink);
+  }
+  .name-jp{ font-family:var(--serif); font-size:clamp(15px,2vw,20px); color:var(--sakura-deep); letter-spacing:6px; margin-bottom:22px;}
+  .role-line{
+    font-size:clamp(16px,2.2vw,20px); color:var(--ink-soft); max-width:600px; margin-bottom:38px;
+  }
+  .role-line b{color:var(--ink); font-weight:700;}
+
+  .hero-cta{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--sans); font-size:14px; font-weight:500; padding:13px 26px; border-radius:30px;
+    border:1.5px solid var(--sakura); transition:all .25s ease; display:inline-block;
+  }
+  .btn.primary{background:var(--sakura); color:#fff; font-weight:700;}
+  .btn.primary:hover{background:var(--sakura-deep); border-color:var(--sakura-deep);}
+  .btn.ghost{border-color:var(--line); color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--sakura); color:var(--sakura-deep);}
+
+  .scroll-hint{position:absolute; bottom:32px; left:32px; font-size:12px; color:var(--ink-soft);}
+
+  .wave{ width:100%; height:60px; display:block; }
+
+  section{padding:90px 0 60px; position:relative; z-index:2; overflow:hidden;}
+  .sec-label{font-size:13px; letter-spacing:3px; color:var(--sakura-deep); text-transform:uppercase; margin-bottom:10px; font-weight:700;}
+  .sec-title{font-family:var(--serif); font-weight:700; font-size:clamp(28px,4vw,42px); margin-bottom:44px; color:var(--ink);}
+
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:50px;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{color:var(--ink-soft); margin-bottom:16px; font-size:15.5px;}
+  .about-text b{color:var(--ink);}
+  .edu-card{
+    background:var(--panel); border:1.5px solid var(--line); border-radius:22px; padding:28px;
+    box-shadow:0 8px 24px rgba(232,137,156,0.08);
+  }
+  .edu-card .school{font-family:var(--serif); font-weight:700; color:var(--sakura-deep); font-size:16px; margin-bottom:8px;}
+  .edu-card .degree{font-size:14.5px; margin-bottom:6px;}
+  .edu-card .meta{color:var(--ink-soft); font-size:13px;}
+
+  .edu-quote{
+    margin-top:28px; padding-top:20px; border-top:1px dashed var(--line);
+    font-family:var(--serif); font-style:italic; font-size:15px; color:var(--ink-soft); line-height:1.7;
+    position:relative;
+  }
+  .edu-quote::before{
+    content:'"'; font-size:40px; color:var(--sakura); position:absolute; top:-6px; left:-6px; opacity:0.5; font-family:var(--serif);
+  }
+  .edu-quote-text{padding-left:20px; display:block;}
+  .edu-quote-source{display:block; margin-top:10px; font-size:12px; font-style:normal; color:var(--sakura-deep); font-weight:600; letter-spacing:0.3px;}
+  .edu-quote-source .flower{margin-right:4px;}
+
+  .stat-row{display:flex; gap:28px; margin-top:24px; flex-wrap:wrap;}
+  .stat .num{font-family:var(--serif); font-size:26px; font-weight:800; color:var(--gold);}
+  .stat .lbl{font-size:12px; color:var(--ink-soft);}
+
+  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px;}
+  .skill-card{
+    background:linear-gradient(160deg, rgba(255,253,249,0.95), rgba(246,233,220,0.5));
+    border:1.5px solid var(--line); border-radius:22px; padding:28px;
+    box-shadow:0 10px 26px rgba(232,137,156,0.08); transition:transform .35s ease, box-shadow .35s ease;
+    position:relative; overflow:hidden;
+  }
+  .skill-card::after{
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:0.6;
+  }
+  .skill-card:hover{transform:translateY(-5px); box-shadow:0 18px 36px rgba(232,137,156,0.16);}
+  .skill-card h4{
+    font-family:var(--serif); font-size:15px; color:var(--ink); text-transform:none; letter-spacing:0.3px;
+    margin-bottom:18px; font-weight:600; display:flex; align-items:center; gap:9px;
+  }
+  .skill-card h4 .cat-icon{font-size:15px; opacity:0.75;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    font-size:13px; padding:7px 15px; border-radius:20px; color:var(--ink); font-weight:500;
+    background:rgba(216,168,87,0.08); border:1px solid rgba(216,168,87,0.35);
+    transition:all .25s ease; letter-spacing:0.2px;
+  }
+  .chip:hover{background:rgba(216,168,87,0.18); border-color:var(--gold); transform:translateY(-2px);}
+
+  .proj{
+    border:1.5px solid var(--line); border-radius:24px; padding:28px; margin-bottom:24px;
+    background:var(--panel); transition:all .3s ease; box-shadow:0 10px 30px rgba(232,137,156,0.08);
+    display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap;
+  }
+  .proj:hover{border-color:var(--sakura); transform:translateY(-5px); box-shadow:0 16px 40px rgba(232,137,156,0.18);}
+  .proj-img{
+    width:220px; aspect-ratio:1/1; flex-shrink:0; border-radius:16px;
+    background:linear-gradient(135deg, var(--bg-soft), var(--panel));
+    border:1.5px dashed var(--line); display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:13px; text-align:center; overflow:hidden;
+  }
+  .proj-img img{width:100%; height:100%; object-fit:cover;}
+  .proj-content{flex:1 1 300px; min-width:0; max-width:100%;}
+  @media (max-width:700px){
+    .proj{flex-direction:column;}
+    .proj-img{width:100%; max-width:280px; margin:0 auto;}
+    .proj-content{flex-basis:100%;}
+  }
+  .proj-img .icon{font-size:26px; display:block; margin-bottom:8px;}
+  .proj-head{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;}
+  .proj-title{font-family:var(--serif); font-size:21px; font-weight:700; color:var(--ink); word-break:break-word;}
+  .proj-role{font-size:13px; color:var(--matcha); font-weight:700; margin-top:4px;}
+  .proj-status{font-size:11.5px; color:var(--gold); border:1.5px solid var(--gold); padding:4px 12px; border-radius:20px; height:fit-content; font-weight:700; white-space:nowrap;}
+  .proj ul{margin-left:20px; color:var(--ink-soft); font-size:14.5px;}
+  .proj ul li{margin-bottom:8px;}
+  .proj-stack{margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;}
+
+  .cp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
+  .cp-card{
+    background:var(--panel); border:1.5px solid var(--line); border-radius:22px; padding:28px; text-align:left;
+    box-shadow:0 8px 24px rgba(232,137,156,0.06);
+  }
+  .cp-card .platform{font-size:12px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:1.5px; font-weight:700;}
+  .cp-card .big{font-family:var(--serif); font-size:36px; font-weight:800; color:var(--sakura-deep); margin:10px 0 4px;}
+  .cp-card .sub{font-size:13px; color:var(--ink-soft);}
+  
+  .ach-carousel-wrap{position:relative;}
+  .ach-grid{
+    display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding-bottom:10px; scrollbar-width:thin; scrollbar-color:var(--sakura) transparent;
+  }
+  .ach-grid::-webkit-scrollbar{height:8px;}
+  .ach-grid::-webkit-scrollbar-thumb{background:var(--sakura); border-radius:10px;}
+  .ach-grid::-webkit-scrollbar-track{background:var(--bg-soft);}
+  .ach-card{
+    background:var(--panel); border:1.5px solid var(--line); border-radius:22px; overflow:hidden;
+    box-shadow:0 10px 28px rgba(232,137,156,0.1); transition:all .3s ease; display:flex; flex-direction:column;
+    flex:0 0 calc(33.333% - 15px); min-width:260px; scroll-snap-align:start; color:inherit; cursor:pointer;
+  }
+  @media (max-width:900px){.ach-card{flex:0 0 calc(70% - 12px);}}
+  @media (max-width:560px){.ach-card{flex:0 0 85%;}}
+  .ach-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(232,137,156,0.22); border-color:var(--sakura);}
+  .ach-photo{
+    width:100%; aspect-ratio:4/3; position:relative; background:linear-gradient(135deg, var(--bg-soft), var(--panel));
+    display:flex; align-items:center; justify-content:center; font-size:44px; color:var(--ink-soft); overflow:hidden;
+    border-bottom:1.5px dashed var(--line); flex-shrink:0;
+  }
+  .ach-photo img{width:100%; height:100%; object-fit:cover;}
+  .ach-badge{
+    position:absolute; top:14px; left:14px; font-size:11.5px; color:#fff; background:var(--seal);
+    padding:6px 14px; border-radius:20px; font-weight:700; letter-spacing:0.5px; box-shadow:0 4px 10px rgba(181,71,63,0.35);
+  }
+  .ach-link-icon{
+    position:absolute; top:14px; right:14px; width:32px; height:32px; border-radius:50%;
+    background:rgba(255,253,249,0.9); display:flex; align-items:center; justify-content:center;
+    font-size:14px; color:var(--sakura-deep); box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  }
+  .ach-card-body{padding:22px 24px 26px;}
+  .ach-card-body b{display:block; font-size:18px; font-family:var(--serif); margin-bottom:8px; color:var(--ink);}
+  .ach-card-body span{font-size:14px; color:var(--ink-soft); line-height:1.6;}
+  .ach-arrows{display:flex; gap:12px; justify-content:flex-end; margin-top:16px;}
+  .ach-arrow{
+    width:42px; height:42px; border-radius:50%; border:1.5px solid var(--sakura); background:var(--panel);
+    color:var(--sakura-deep); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:all .2s ease;
+  }
+  .ach-arrow:hover{background:var(--sakura); color:#fff;}
+
+
+  .profile-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px;}
+  .profile-card{
+    background:var(--panel); border:1.5px solid var(--line); border-radius:22px; padding:26px;
+    display:flex; align-items:center; gap:18px; box-shadow:0 8px 24px rgba(232,137,156,0.08);
+    transition:all .25s ease;
+  }
+  .profile-card:hover{transform:translateY(-4px); border-color:var(--sakura); box-shadow:0 16px 36px rgba(232,137,156,0.2);}
+  .profile-logo{
+    width:56px; height:56px; border-radius:16px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800;
+    color:#fff; overflow:hidden;
+  }
+  .profile-logo img{width:100%; height:100%; object-fit:cover;}
+  .profile-info{min-width:0;}
+  .profile-info b{display:block; font-family:var(--serif); font-size:16.5px; color:var(--ink); margin-bottom:2px;}
+  .profile-info span{font-size:13px; color:var(--ink-soft);}
+  .lc-logo{background:linear-gradient(135deg,#FFA116,#F2B84B);}
+  .cf-logo{background:linear-gradient(135deg,#3B6FE0,#5A8DEE);}
+  .gh-logo{background:linear-gradient(135deg,#2b2320,#4A2E3A);}
+  .fig-logo{background:linear-gradient(135deg,#F24E1E,#A259FF);}
+
+  .contact-box{
+    background:var(--panel); border:1.5px solid var(--line); border-radius:28px; padding:56px;
+    text-align:center; box-shadow:0 12px 32px rgba(232,137,156,0.1); position:relative; overflow:hidden;
+  }
+  .contact-box h3{font-family:var(--serif); font-size:clamp(24px,4vw,34px); margin-bottom:16px; color:var(--ink);}
+  .contact-box p{color:var(--ink-soft); margin-bottom:30px;}
+  .contact-links{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  footer{padding:40px 0; text-align:center; color:var(--ink-soft); font-size:13px; position:relative; z-index:2;}
+  footer .jp{color:var(--sakura-deep); font-family:var(--serif);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════════
-       NAV
-       ══════════════════════════════════════════ -->
-  <nav id="nav" aria-label="Main navigation">
-    <div class="nav-inner container">
-      <a href="#hero" class="nav-logo" aria-label="DR — Home">
-        <img src="images/profile/profile.jpeg" alt="" style="width:28px; height:28px; border-radius:50%; object-fit:cover; margin-right:8px;" aria-hidden="true">
-        DR<span class="nav-logo-dot">.</span>
-      </a>
+<div id="blobs">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="blob blob4"></div>
+</div>
+<div id="petals"></div>
 
-      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul class="nav-links" id="navLinks" role="list">
-        <li><a href="#about"        class="nav-link">About</a></li>
-        <li><a href="#skills"       class="nav-link">Skills</a></li>
-        <li><a href="#projects"     class="nav-link">Projects</a></li>
-        <li><a href="#designs"      class="nav-link">Designs</a></li>
-        <li><a href="#stats"        class="nav-link">Stats</a></li>
-        <li><a href="#achievements" class="nav-link">Achievements</a></li>
-        <li><a href="#contact"      class="nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- ══════════════════════════════════════════
-       01 HERO
-       ══════════════════════════════════════════ -->
-  <section id="hero" aria-label="Introduction">
-    <!-- Grid texture overlay -->
-    <div class="hero-grid" aria-hidden="true"></div>
-    <!-- Glow blob -->
-    <div class="hero-glow" aria-hidden="true"></div>
-
-    <div class="container hero-content">
-      <!-- Status chip -->
-      <div class="hero-status fade-up" role="status">
-        <span class="hero-status-dot" aria-hidden="true"></span>
-        <span>Open to internships for Data Analyst &amp; SDE roles &amp; Front-End Developer</span>
-      </div>
-
-      <!-- Name -->
-      <h1 class="hero-name fade-up">
-        <span class="hero-name-first">Disha</span>
-        <span class="hero-name-last">Rathore</span>
-      </h1>
-
-      <!-- Typing role -->
-      <p class="hero-role fade-up" aria-live="polite">
-        <span id="typingText"></span><span class="hero-cursor" aria-hidden="true">|</span>
-      </p>
-
-      <!-- Sub-tagline -->
-      <p class="hero-sub fade-up">B.Tech CSE &nbsp;&middot;&nbsp; Galgotias University</p>
-
-      <!-- Stat chips -->
-      <div class="hero-chips fade-up" role="list" aria-label="Highlights">
-        <span class="hero-chip" role="listitem">Problem Solver</span>
-        <span class="hero-chip" role="listitem">Data Analyst</span>
-        <span class="hero-chip" role="listitem">UI/UX Designer</span>
-        <span class="hero-chip" role="listitem">Frontend Developer</span>
-      </div>
-
-      <!-- CTAs -->
-      <div class="hero-ctas fade-up">
-        <a href="#projects" class="btn btn-primary" id="heroViewProjects">View Projects &#x2193;</a>
-        <a href="Resume.pdf" class="btn btn-ghost" id="heroResume" target="_blank" rel="noopener">Download Resume &#x2197;</a>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="hero-scroll" aria-hidden="true">
-        <div class="hero-scroll-line"></div>
-        <span class="hero-scroll-label">scroll</span>
-      </div>
-    </div>
-  </section>
-  <!-- ══════════════════════════════════════════
-       02 ABOUT
-       ══════════════════════════════════════════ -->
-  <section id="about" aria-labelledby="aboutTitle">
-    <div class="container">
-      <div class="about-grid">
-
-        <!-- LEFT: avatar -->
-        <div class="about-visual fade-up" aria-hidden="true">
-          <div class="about-avatar-wrap">
-            <div class="about-avatar">
-              <img src="images/profile/profile.jpeg" alt="Disha Rathore" style="width:100%; height:100%; object-fit:cover; object-position: center;" />
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: bio -->
-        <div class="about-bio">
-          <span class="eyebrow fade-up">// 01&nbsp;&nbsp;About</span>
-          <h2 id="aboutTitle" class="section-title fade-up">
-            Building systems that <em>matter</em>
-          </h2>
-
-          <p class="about-para fade-up">
-            I'm Pre-Final Year B.Tech Computer Science student at Galgotias University with a CGPA of 8.9.
-            My technical skills span Data Structures &amp; Algorithms, Frontend Development, Data Analytics,
-            and DBMS — I enjoy solving real-world problems through technology.
-          </p>
-          <p class="about-para fade-up">
-            I've solved 750+ problems on LeetCode with a 1900+ rating, which has sharpened my analytical
-            thinking, persistence, and ability to approach complex problems systematically.
-          </p>
-          <p class="about-para fade-up">
-            My one-month experience as a freelance frontend developer helped me build a strong
-            user-centric approach — translating client requirements into intuitive designs while writing
-            reliable, well-structured code. Beyond that, I've won three hackathons including HackHound 3.0,
-            where I led my team, and served as an Coding Club Coordinator mentoring 10+ students.
-          </p>
-
-          <div class="about-badges fade-up" role="list" aria-label="Roles and status">
-            <span class="about-badge about-badge--primary" role="listitem">Open to Internships</span>
-            <span class="about-badge" role="listitem">Problem Solver</span>
-            <span class="about-badge" role="listitem">UI/UX Designer</span>
-            <span class="about-badge" role="listitem">Data Analyst</span>
-            <span class="about-badge" role="listitem">Frontend Developer</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       03 SKILLS
-       ══════════════════════════════════════════ -->
-  <section id="skills" aria-labelledby="skillsTitle">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow fade-up">// 02&nbsp;&nbsp;Expertise</span>
-        <h2 id="skillsTitle" class="section-title fade-up">Tech Stack</h2>
-      </div>
-
-      <div class="tech-stack-wrap fade-up">
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java"></div>
-          <span class="tech-stack-name">Java</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"></div>
-          <span class="tech-stack-name">React</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"></div>
-          <span class="tech-stack-name">Python</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"></div>
-          <span class="tech-stack-name">Figma</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" alt="Prometheus"></div>
-          <span class="tech-stack-name">Prometheus</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" alt="Grafana"></div>
-          <span class="tech-stack-name">Grafana</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png" alt="Excel"></div>
-          <span class="tech-stack-name">Excel</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://img.icons8.com/color/48/000000/power-bi.png" alt="Power BI"></div>
-          <span class="tech-stack-name">Power BI</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5"></div>
-          <span class="tech-stack-name">HTML5</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3"></div>
-          <span class="tech-stack-name">CSS3</span>
-        </div>
-        <div class="tech-stack-item">
-          <div class="tech-stack-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL"></div>
-          <span class="tech-stack-name">MySQL</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       04 PROJECTS
-       ══════════════════════════════════════════ -->
-  <section id="projects" aria-labelledby="projectsTitle">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow fade-up">// 03&nbsp;&nbsp;Work</span>
-        <h2 id="projectsTitle" class="section-title fade-up">Projects</h2>
-      </div>
-
-      <!-- Projects Slider -->
-      <div class="projects-slider-wrapper">
-        <div class="projects-slider-track" id="projectsSliderTrack">
-
-          <!-- Slide 1: MOAE -->
-          <article class="project-featured card fade-up" aria-label="Featured project: MOAE">
-            <div class="project-featured-inner">
-              <div class="project-featured-info">
-                <div class="project-meta">
-                  <span class="project-num">01</span>
-                  <span class="project-icon" aria-hidden="true">🤖</span>
-                </div>
-                <h3 class="project-title">Autonomous Multi-Agent<br>Orchestration Engine</h3>
-                <p class="project-desc">
-                  A workflow automation platform that enables users to create, manage, and track automated
-                  workflows efficiently. Designed the system architecture and developed the frontend using
-                  React — built features that let users monitor the progress of each step in a pipeline.
-                </p>
-                <div class="tags">
-                  <span class="tag">System Architecture</span>
-                  <span class="tag">Workflow Automation</span>
-                  <span class="tag">Multi-Agent</span>
-                  <span class="tag">Frontend</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/appledog632/Autonomous-Multi-Agent-Orchestration-Engine"
-                     target="_blank" rel="noopener" class="btn btn-ghost" id="moaeGithub">
-                    GitHub &#x2197;
-                  </a>
-                </div>
-              </div>
-              <img src="images/MOAE/MOAE.jpeg" alt="MOAE Dashboard" class="project-pipeline" style="object-fit: cover; width: 100%; border-radius: var(--radius-md);" />
-            </div>
-          </article>
-
-          <!-- Slide 2: Millie AI -->
-          <article class="project-featured card fade-up" aria-label="Project: Millie AI">
-            <div class="project-featured-inner">
-              <div class="project-featured-info">
-                <div class="project-meta">
-                  <span class="project-num">02</span>
-                  <span class="project-icon" aria-hidden="true">🎙️</span>
-                </div>
-                <h3 class="project-title">Millie AI</h3>
-                <p class="project-desc">
-                  An AI avatar that provides university information through voice-based interaction.
-                  Combines natural language processing with a responsive conversational interface to
-                  assist students with campus queries.
-                </p>
-                <div class="tags">
-                  <span class="tag">Ollama Finetuning</span>
-                  <span class="tag">Voice Interface</span>
-                  <span class="tag">Avatar</span>
-                  <span class="tag">Frontend</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/appledog632/ai_avatar_unoff"
-                     target="_blank" rel="noopener" class="btn btn-ghost" id="millieGithub">
-                    GitHub &#x2197;
-                  </a>
-                </div>
-              </div>
-              <img src="images/Millie/Millie.jpeg" alt="Millie AI Dashboard" class="project-pipeline" style="object-fit: cover; object-position: center top; width: 100%; max-height: 400px; border-radius: var(--radius-md);" />
-            </div>
-          </article>
-
-          <!-- Slide 3: Customer Satisfaction -->
-          <article class="project-featured card fade-up" aria-label="Project: Customer Satisfaction Prediction">
-            <div class="project-featured-inner">
-              <div class="project-featured-info">
-                <div class="project-meta">
-                  <span class="project-num">03</span>
-                  <span class="project-icon" aria-hidden="true"></span>
-                </div>
-                <h3 class="project-title">Customer Satisfaction<br>Prediction &amp; Analysis</h3>
-                <p class="project-desc">
-                  Machine Learning model to predict airline customer satisfaction. 
-                  It includes feature engineering, exploratory data analysis, and classification techniques. 
-                  The model helps identify key factors like service quality and 
-                  delays that drive passenger satisfaction.
-                </p>
-                <div class="tags">
-                  <span class="tag">Exploratory Data Analysis</span>
-                  <span class="tag">Data Visualization</span>
-                  <span class="tag">Machine Learning</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/appledog632/Customer-Satisfaction-Prediction-Analysis"
-                     target="_blank" rel="noopener" class="btn btn-ghost" id="custSatGithub">
-                    GitHub &#x2197;
-                  </a>
-                </div>
-              </div>
-              <img src="images/customarSatisfction/customarSatisfction.jpeg" alt="Customer Satisfaction Prediction Dashboard" class="project-pipeline" style="object-fit: cover; width: 100%; border-radius: var(--radius-md);" />
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Controls -->
-        <div class="slider-controls">
-          <button class="slider-btn prev" id="sliderPrevBtn" aria-label="Previous">&larr;</button>
-          <div class="slider-dots" id="sliderDots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-          <button class="slider-btn next" id="sliderNextBtn" aria-label="Next">&rarr;</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       05 FIGMA DESIGNS
-       ══════════════════════════════════════════ -->
-  <section id="designs" class="designs-section" aria-labelledby="designsTitle">
-
-    <!-- Static header above sticky zone -->
-    <div class="container designs-header">
-      <span class="eyebrow fade-up">// 04&nbsp;&nbsp;Figma Designs</span>
-      <h2 id="designsTitle" class="section-title fade-up">My Designs</h2>
-      <p class="section-subtitle fade-up">Scroll to explore — each card expands as you go.</p>
-    </div>
-
-    <!-- Scroll outer container -->
-    <div class="designs-scroll-outer" id="designsScrollOuter">
-      <!-- Sticky inner -->
-      <div class="designs-sticky" id="designsSticky">
-        <!-- Progress bar -->
-        <div class="designs-progress-track" aria-hidden="true">
-          <div class="designs-progress-fill" id="designsProgressFill"></div>
-        </div>
-
-        <div class="container designs-cards-wrap">
-          <div class="designs-cards" id="designsCards">
-
-            <!-- Card 01: Fuel Go -->
-            <div class="design-card" id="designCard0" role="article" aria-label="Design: Fuel Go Delivery App">
-              <div class="design-card-header">
-                <div class="design-card-left">
-                  <span class="design-num">01</span>
-                  <div>
-                    <h3 class="design-title">Fuel Go — Delivery App</h3>
-                    <span class="design-badge" id="designBadge0">Mobile UI</span>
-                  </div>
-                </div>
-                <button class="design-toggle" aria-label="Toggle card" aria-expanded="false"
-                        data-card="0" id="designToggle0">+</button>
-              </div>
-              <div class="design-card-body" id="designBody0" aria-hidden="true">
-                <div class="design-body-inner">
-                  <!-- Description left -->
-                  <div class="design-body-info">
-                    <p class="design-desc">
-                      End-to-end UI design for a fuel delivery mobile app. Covers onboarding, order
-                      placement, real-time tracking.
-                    </p>
-                    <div class="tags">
-                      <span class="tag">Figma</span>
-                      <span class="tag">Mobile</span>
-                      <span class="tag">Prototyping</span>
-                    </div>
-                    <div class="design-actions">
-                      <a href="https://www.figma.com/community/file/1625157912479384953"
-                         target="_blank" rel="noopener" class="btn btn-primary" id="fuelGoFigma">
-                        View in Figma &#x2197;
-                      </a>
-                    </div>
-                  </div>
-                  <!-- Preview right (CSS mock) -->
-                  <div class="design-preview" aria-hidden="true">
-                    <div class="design-mock design-mock--mobile">
-                      <div class="mock-mobile-bar">
-                        <span class="mock-icon">📍</span>
-                        <span class="mock-text">Current Location</span>
-                      </div>
-                      <div class="mock-mobile-order">
-                        <div class="mock-order-row">
-                          <span class="mock-emoji">⛽</span>
-                          <span class="mock-label">Unleaded 95</span>
-                          <span class="mock-amt">20L</span>
-                        </div>
-                        <div class="mock-order-row">
-                          <span class="mock-emoji">⛽</span>
-                          <span class="mock-label">Diesel</span>
-                          <span class="mock-amt">40L</span>
-                        </div>
-                      </div>
-                      <div class="mock-mobile-cta">Order Now &#x2192;</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 02: Portfolio Design System -->
-            <div class="design-card" id="designCard1" role="article" aria-label="Design: Portfolio Design System">
-              <div class="design-card-header">
-                <div class="design-card-left">
-                  <span class="design-num">02</span>
-                  <div>
-                    <h3 class="design-title">Portfolio</h3>
-                    <span class="design-badge" id="designBadge1">Web Design</span>
-                  </div>
-                </div>
-                <button class="design-toggle" aria-label="Toggle card" aria-expanded="false"
-                        data-card="1" id="designToggle1">+</button>
-              </div>
-              <div class="design-card-body" id="designBody1" aria-hidden="true">
-                <div class="design-body-inner">
-                  <div class="design-body-info">
-                    <p class="design-desc">
-                      This is my portfolio design made in Figma.
-                      It has a simple and clean layout with sections like Home, About, Projects, Skills, My Designs and Contact.
-                      I focused on user-friendly navigation, readability, and a minimal design.
-                    </p>
-                    <div class="tags">
-                      <span class="tag">Figma</span>
-                      <span class="tag">Design</span>
-                    </div>
-                    <div class="design-actions">
-                      <a href="https://www.figma.com/community/file/1625163136792063388"
-                         target="_blank" rel="noopener" class="btn btn-primary" id="portfolioDesignFigma">
-                        View in Figma &#x2197;
-                      </a>
-                    </div>
-                  </div>
-                  <!-- Preview: photo -->
-                  <div class="design-preview" aria-hidden="true">
-                    <div style="width: 100%; height: 100%; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--border-md);">
-                      <img src="images/Portfolio/Portfolio.jpeg" alt="Disha Rathore" style="width:100%; height:100%; object-fit:cover; object-position: center top;" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /designs-cards -->
-        </div><!-- /container -->
-      </div><!-- /designs-sticky -->
-    </div><!-- /designs-scroll-outer -->
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       06 CP STATS
-       ══════════════════════════════════════════ -->
-
-<div style="width:100%;max-width:1140px;">
-  <span class="eyebrow">// 05&nbsp;&nbsp;Problem Solving</span>
-  <h2 class="section-title">Coding Profiles</h2>
-
-  <div class="cards-stack">
-
-    <!-- ══════════════ LEETCODE ══════════════ -->
-    <div class="hcard lc">
-
-      <div class="lc-left">
-        <div class="platform-header">
-          <div class="logo-box lc">
-            <svg viewBox="0 0 50 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M36 38H20C17.8 38 16 36.2 16 34V26C16 23.8 17.8 22 20 22H36"
-                stroke="#FFA116" stroke-width="3.5" stroke-linecap="round"/>
-              <path d="M27 16L18 25L27 34"
-                stroke="#FFA116" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <div class="platform-name">LeetCode</div>
-            <div class="handle">@ AppleDog6113</div>
-          </div>
-        </div>
-
-        <div class="mini-stats">
-          <div class="mini-stat">
-            <div class="mini-stat-num">750+</div>
-            <div class="mini-stat-label">Solved</div>
-          </div>
-          <div class="mini-stat">
-            <div class="mini-stat-num">1900+</div>
-            <div class="mini-stat-label">Rating</div>
-          </div>
-          <div class="mini-stat">
-            <div class="mini-stat-num">Top 5%</div>
-            <div class="mini-stat-label">Global</div>
-          </div>
-        </div>
-
-        <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener" class="profile-btn">
-          LeetCode Profile ↗
-        </a>
-      </div>
-
-      <!-- Real LeetCode card with heatmap -->
-      <div class="lc-img-panel">
-        <img
-          src="https://leetcard.jacoblin.cool/AppleDog6113?theme=dark&ext=heatmap&border=0&radius=14"
-          alt="LeetCode Stats & Heatmap"
-          onload="this.classList.add('loaded')"
-        />
-      </div>
-    </div>
-
-
-    <!-- ══════════════ CODEFORCES ══════════════ -->
-    <div class="hcard cf">
-
-      <div class="cf-left">
-        <div class="platform-header">
-          <div class="logo-box cf">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="11" width="4" height="10" rx="1" fill="#4a9eff"/>
-              <rect x="10" y="7" width="4" height="14" rx="1" fill="#4a9eff" opacity="0.75"/>
-              <rect x="17" y="3" width="4" height="18" rx="1" fill="#4a9eff" opacity="0.5"/>
-            </svg>
-          </div>
-          <div>
-            <div class="platform-name">Codeforces</div>
-            <div class="handle">@ DishaRathore</div>
-          </div>
-        </div>
-
-        <div class="mini-stats">
-          <div class="mini-stat">
-            <div class="mini-stat-num" id="cf-solved"><span class="skel"></span></div>
-            <div class="mini-stat-label">Solved</div>
-          </div>
-          <div class="mini-stat">
-            <div class="mini-stat-num" id="cf-contests"><span class="skel"></span></div>
-            <div class="mini-stat-label">Contests</div>
-          </div>
-        </div>
-
-        <a href="https://codeforces.com/profile/DishaRathore" target="_blank" rel="noopener" class="profile-btn">
-          Codeforces Profile ↗
-        </a>
-      </div>
-
-      <!-- Difficulty breakdown + tags -->
-      <div class="cf-mid">
-        <div class="diff-section">
-          <div class="diff-section-title">Difficulty Breakdown</div>
-          <div class="diff-row">
-            <div class="diff-meta"><span class="diff-name">800 – 1200</span><span class="diff-count" id="d1">—</span></div>
-            <div class="diff-track"><div class="diff-fill" id="df1" style="background:rgba(74,158,255,0.4);"></div></div>
-          </div>
-          <div class="diff-row">
-            <div class="diff-meta"><span class="diff-name">1300 – 1600</span><span class="diff-count" id="d2">—</span></div>
-            <div class="diff-track"><div class="diff-fill" id="df2" style="background:rgba(74,158,255,0.65);"></div></div>
-          </div>
-          <div class="diff-row">
-            <div class="diff-meta"><span class="diff-name">1700 – 2000</span><span class="diff-count" id="d3">—</span></div>
-            <div class="diff-track"><div class="diff-fill" id="df3" style="background:rgba(74,158,255,0.88);"></div></div>
-          </div>
-          <div class="diff-row">
-            <div class="diff-meta"><span class="diff-name">2000+</span><span class="diff-count" id="d4">—</span></div>
-            <div class="diff-track"><div class="diff-fill" id="df4" style="background:#4a9eff;"></div></div>
-          </div>
-        </div>
-
-        <div class="tags">
-          <span class="tag">Implementation</span>
-          <span class="tag">Greedy</span>
-          <span class="tag">Math</span>
-          <span class="tag">DP</span>
-          <span class="tag">Graphs</span>
-          <span class="tag">Constructive</span>
-          <span class="tag">Sorting</span>
-          <span class="tag">Brute Force</span>
-        </div>
-      </div>
-
-      <!-- Rating ring -->
-      <div class="cf-ring-panel">
-        <div class="ring-wrap">
-          <svg width="118" height="118" viewBox="0 0 118 118">
-            <circle cx="59" cy="59" r="50" fill="none" stroke="rgba(74,158,255,0.08)" stroke-width="9"/>
-            <circle cx="59" cy="59" r="50" fill="none" stroke="url(#cfG)" stroke-width="9"
-              stroke-dasharray="314" stroke-dashoffset="314" stroke-linecap="round" id="cf-arc"/>
-            <defs>
-              <linearGradient id="cfG" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#667eea"/>
-                <stop offset="100%" stop-color="#4a9eff"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div class="ring-center">
-            <div class="ring-num" id="cf-ring-num">—</div>
-            <div class="ring-label">Max Rating</div>
-          </div>
-        </div>
-        <div class="rank-pill" id="cf-rank">Loading…</div>
-      </div>
-
+<nav>
+  <div class="wrap">
+    <!-- NAV LOGO: to add your small profile photo here, replace the text "DR" below with:
+         <img src="images/profile.jpg" alt="Disha"> -->
+    <div class="logo"><span class="mark">DR</span> Disha Rathore</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#coding">Coding</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#footprints">Footprints</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
-</div>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+</nav>
 
-  :root {
-    --bg: #0c0c0e;
-    --surface: #111114;
-    --surface2: #18181d;
-    --border: rgba(255,255,255,0.07);
-    --text: #f0f0f0;
-    --muted: #5a5a6a;
-    --lc-orange: #FFA116;
-    --cf-blue: #4a9eff;
-  }
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">✿ Open to SDE · AI Automation · Data Analyst roles</div>
+        <h1 class="name">Disha Rathore</h1>
+        <div class="name-jp">ディシャ・ラソール</div>
+        <p class="role-line">Final-year <b>B.Tech CSE (AI/ML)</b> student at Galgotias University. I build <b>agentic systems</b>, fine-tune LLMs, and turn messy data into gentle, clear decisions.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">View projects ✿</a>
+          <a class="btn ghost" href="Resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    min-height: 100vh;
-    padding: 60px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        </div>
+      </div>
+      <!-- MAIN PROFILE PHOTO GOES HERE.
+           Replace the placeholder-text div below with:
+           <img src="images/profile.jpg" alt="Disha Rathore"> -->
+           <div class="photo-frame" id="hero-photo">
+          <img src="images/disha.jpeg" alt="Disha Rathore">
+        </div>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll for more ↓</div>
+</header>
 
-  .eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    color: #667eea;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 10px;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 8vw, 6rem);
-    letter-spacing: 0.02em;
-    line-height: 0.95;
-    color: var(--text);
-    margin-bottom: 52px;
-  }
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#F6E9DC"/></svg>
 
-  .cards-stack {
-    width: 100%;
-    max-width: 1140px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
+<section id="about" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec-label">Hello, I'm</div>
+    <div class="sec-title">About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a final-year <b>B.Tech CSE (AI/ML)</b> student with strong foundations in <b>Data Structures &amp; Algorithms</b>, agentic automation, and database management.</p>
+        <p><b>LeetCode Knight</b> (1950+ rating, 1550+ problems solved across platforms) and <b>Pupil on Codeforces</b>, with hands-on experience building AI-powered applications, multi-agent systems, and automation workflows.</p>
+        <p>I've led technical teams, mentored peers, and won hackathons — I care about building things that feel as good to use as they are useful.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="num">1950+</div><div class="lbl">LeetCode Rating</div></div>
+          <div class="stat"><div class="num">1550+</div><div class="lbl">Problems Solved</div></div>
+          <div class="stat"><div class="num">8.9</div><div class="lbl">CGPA / 10</div></div>
+        </div>
+      </div>
+      <div class="edu-card">
+      <div class="school">Galgotias University</div>
+      <div class="degree">B.Tech, Computer Science Engineering (AI/ML)</div>
+      <div class="meta">Sept 2023 — June 2027 · CGPA 8.9/10</div>
+      <div class="edu-quote">
+        <span class="edu-quote-text">I copied your cadence. I mirrored your style. I studied the greats, I'm the greatest right now</span>
+        <span class="edu-quote-source"><span class="flower">✿</span>J. Cole</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
 
-  /* ── Base card ── */
-  .hcard {
-    border-radius: 22px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    display: grid;
-    align-items: stretch;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.55s forwards;
-  }
-  .hcard:nth-child(2) { animation-delay: 0.13s; }
-  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label">What I work with</div>
+    <div class="sec-title">Skills & Tools</div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h4><span class="cat-icon">✎</span>Languages</h4>
+        <div class="chip-row">
+          <span class="chip">Java</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4><span class="cat-icon">⟡</span>Core Fundamentals</h4>
+        <div class="chip-row">
+          <span class="chip">DSA</span><span class="chip">OOP</span><span class="chip">DBMS</span><span class="chip">OS</span><span class="chip">Computer Networks</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4><span class="cat-icon">⚒</span>Tools & Platforms</h4>
+        <div class="chip-row">
+          <span class="chip">Git / GitHub</span><span class="chip">Hugging Face</span><span class="chip">Unsloth</span><span class="chip">Figma</span><span class="chip">CrewAI</span><span class="chip">n8n</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4><span class="cat-icon">✧</span>AI / ML</h4>
+        <div class="chip-row">
+          <span class="chip">LLMs</span><span class="chip">Model Fine-Tuning</span><span class="chip">RAG</span><span class="chip">Agentic Systems</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4><span class="cat-icon">⌘</span>Database and APIs</h4>
+        <div class="chip-row">
+          <span class="chip">MySQL</span><span class="chip">REST API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  .hcard::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 10%; right: 10%;
-    height: 1px;
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-  .hcard.lc::after { background: linear-gradient(90deg, transparent, var(--lc-orange), transparent); }
-  .hcard.cf::after { background: linear-gradient(90deg, transparent, var(--cf-blue), transparent); }
-  .hcard:hover::after { opacity: 1; }
-  .hcard.lc:hover { border-color: rgba(255,161,22,0.28); box-shadow: 0 8px 48px rgba(255,161,22,0.07); transform: translateY(-2px); }
-  .hcard.cf:hover { border-color: rgba(74,158,255,0.28); box-shadow: 0 8px 48px rgba(74,158,255,0.07); transform: translateY(-2px); }
+<section id="projects" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec-label">Things I've built</div>
+    <div class="sec-title">Projects</div>
 
-  /* ════ LEETCODE layout: [left | right-img] ════ */
-  .hcard.lc { grid-template-columns: 280px 1fr; min-height: 220px; }
+    <!-- Millie project image: replace placeholder with <img src="images/millie.jpg" alt="Millie"> -->
+    <a class="proj" href="https://github.com/appledog632/ai_avatar_unoff" target="_blank" rel="noopener">
+      <div class="proj-img"><img src="images/Millie/Millie.jpeg" alt="Millie"></div>
+      <div class="proj-content">
+        <div class="proj-head">
+          <div>
+            <div class="proj-title">Millie — AI Avatar Platform</div>
+            <div class="proj-role">Front-End Developer / Fine-tuning</div>
+          </div>
+          <div class="proj-status">Completed</div>
+        </div>
+        <ul>
+          <li>Developed an AI avatar platform enabling real-time voice and text interactions.</li>
+          <li>Fine-tuned LLMs using Hugging Face and Unsloth to improve response quality and accuracy.</li>
+          <li>Reduced response latency from 8s to 2s by implementing load balancing.</li>
+          <li>Integrated realistic 3D avatars using Blender and Mixamo for immersive interactions.</li>
+        </ul>
+        <div class="proj-stack"><span class="chip">Blender</span><span class="chip">Mixamo</span><span class="chip">React</span><span class="chip">Ollama</span><span class="chip">Unsloth</span></div>
+      </div>
+    </a>
 
-  .lc-left {
-    padding: 30px 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 18px;
-    border-right: 1px solid var(--border);
-    background: linear-gradient(145deg, rgba(255,161,22,0.045) 0%, transparent 65%);
-  }
+    <!-- AMOS project image: replace placeholder with <img src="images/amos.jpg" alt="AMOS"> -->
+    <a class="proj" href="https://github.com/appledog632/Autonomous-Multi-Agent-Orchestration-System" target="_blank" rel="noopener">
+      <div class="proj-img"><img src="images/MOAE/MOAE.jpeg" alt="AMOS"></div>
+      <div class="proj-content">
+        <div class="proj-head">
+          <div>
+            <div class="proj-title">AMOS — Autonomous Multi-Agent Orchestration System</div>
+            <div class="proj-role">Frontend Developer, Technical Lead, System Architect</div>
+          </div>
+          <div class="proj-status">Ongoing</div>
+        </div>
+        <ul>
+          <li>A workflow automation platform that enables users to create, manage, and track automated workflows efficiently.</li>
+          <li>Designed the system architecture and developed the frontend using React — built features that let users monitor the progress of each step in a pipeline.</li>
+        </ul>
+        <div class="proj-stack"><span class="chip">React</span><span class="chip">Groq API</span><span class="chip">Qwen</span><span class="chip">GPT-OSS</span></div>
+      </div>
+    </a>
 
-  /* ════ CODEFORCES layout: [left | mid | ring] ════ */
-  .hcard.cf { grid-template-columns: 280px 1fr 190px; min-height: 220px; }
+    <!-- Power BI project image: replace placeholder with <img src="images/hr-attrition.jpg" alt="HR Attrition Dashboard"> -->
+    <a class="proj" href="https://github.com/appledog632/Employee-Attribution-Productivity-Analytics" target="_blank" rel="noopener">
+  <div class="proj-img"><img src="images/Employee.png" alt="HR Attrition Dashboard"></div>
+      <div class="proj-content">
+        <div class="proj-head">
+          <div>
+            <div class="proj-title">HR Attrition Analytics</div>
+            <div class="proj-role">Data Analyst Intern — HCL GUVI</div>
+          </div>
+          <div class="proj-status">Internship</div>
+        </div>
+        <ul>
+          <li>Built Power BI dashboards to analyze employee attrition and workforce productivity using HR datasets.</li>
+          <li>Identified key drivers of attrition and delivered actionable insights for decision-making.</li>
+          <li>Presented data-driven findings to stakeholders, bridging business and analytics.</li>
+        </ul>
+      <div class="proj-stack"><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Data Analysis</span></div>
+      </div>
+    </a>
+  </div>
+</section>
 
-  .cf-left {
-    padding: 30px 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 18px;
-    border-right: 1px solid var(--border);
-    background: linear-gradient(145deg, rgba(74,158,255,0.045) 0%, transparent 65%);
-  }
+<section id="coding">
+  <div class="wrap">
+    <div class="sec-label">Competitive programming</div>
+    <div class="sec-title">Coding Profiles</div>
+    <div class="cp-grid">
+      <div class="cp-card"><div class="platform">LeetCode</div><div class="big">1950+</div><div class="sub">Rating · Knight tier</div></div>
+      <div class="cp-card"><div class="platform">Problems Solved</div><div class="big">1550+</div><div class="sub">Across all platforms</div></div>
+      <div class="cp-card"><div class="platform">Codeforces</div><div class="big">Pupil</div><div class="sub">Competitive rating tier</div></div>
+      <div class="cp-card"><div class="platform">HackerRank</div><div class="big">5★</div><div class="sub">Java & Python</div></div>
+    </div>
+  </div>
+</section>
 
-  .cf-mid {
-    padding: 26px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 16px;
-    border-right: 1px solid var(--border);
-  }
+  <section id="achievements" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec-label">Milestones</div>
+    <div class="sec-title">Achievements</div>
+    <div class="ach-carousel-wrap">
+    <div class="ach-grid" id="ach-grid">
 
-  /* ── Shared: platform header ── */
-  .platform-header { display: flex; align-items: center; gap: 12px; }
-  .logo-box {
-    width: 42px; height: 42px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .logo-box.lc { background: rgba(255,161,22,0.1); border: 1px solid rgba(255,161,22,0.2); }
-  .logo-box.cf { background: rgba(74,158,255,0.1); border: 1px solid rgba(74,158,255,0.2); }
-  .logo-box svg { width: 24px; height: 24px; }
-  .platform-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.55rem; letter-spacing: 0.1em; line-height: 1;
-  }
-  .lc-left .platform-name { color: var(--lc-orange); }
-  .cf-left .platform-name { color: var(--cf-blue); }
-  .handle { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--muted); letter-spacing: 0.04em; margin-top: 2px; }
+      <a class="ach-card" href="https://www.linkedin.com/posts/disha-rathore-8b3702273_hackathonchampion-mlhwinner-mlhgoldenbadge-activity-7301263436032659456-T0H4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAELYlocBXuBnYr9IJKS4XOUM0kE3Nzi7nbk" target="_blank" rel="noopener">
+        <div class="ach-photo">
+          <span class="ach-badge">Winner</span>
+          <span class="ach-link-icon">↗</span>
+          <img src="images/hack hound/hack hound.jpeg" alt="HackHound 3.0 win">
+        </div>
+        <div class="ach-card-body">
+          <b>HackHound 3.0</b>
+          <span>Led team to 1st position at HackHound 3.0, a Major League Hacking event. Delivered a working solution under tight deadlines — strengthening leadership and team collaboration.</span>
+        </div>
+      </a>
 
-  /* ── Mini stats pills ── */
-  .mini-stats { display: flex; flex-wrap: wrap; gap: 7px; }
-  .mini-stat {
-    flex: 1; min-width: 64px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 8px 12px;
-    display: flex; flex-direction: column; gap: 2px;
-  }
-  .mini-stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.45rem; line-height: 1; letter-spacing: 0.03em;
-  }
-  .lc-left .mini-stat-num { color: var(--lc-orange); }
-  .cf-left .mini-stat-num { color: var(--cf-blue); }
-  .mini-stat-label { font-family: 'DM Mono', monospace; font-size: 0.52rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+        <a class="ach-card" href="https://www.linkedin.com/posts/disha-rathore-8b3702273_codewizard-hackthonwinner-ai-activity-7290632362898411522-6F93?utm_source=share&utm_medium=member_desktop&rcm=ACoAAELYlocBXuBnYr9IJKS4XOUM0kE3Nzi7nbk" target="_blank" rel="noopener">
+          <div class="ach-photo">
+            <span class="ach-badge">Winner</span>
+            <span class="ach-link-icon">↗</span>
+            <img src="images/codewizard/codewizard.jpeg" alt="CodeWizards win">
+          </div>
+          <div class="ach-card-body">
+            <b>CodeWizards</b>
+            <span>Won 1st position at CodeWizards, demonstrating strong problem-solving and competitive programming skills.</span>
+          </div>
+        </a>
 
-  /* ── Profile button ── */
-  .profile-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'DM Mono', monospace; font-size: 0.63rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; padding: 7px 14px;
-    border-radius: 8px; border: 1px solid; width: fit-content;
-    transition: background 0.2s;
-  }
-  .lc-left .profile-btn { color: var(--lc-orange); border-color: rgba(255,161,22,0.28); }
-  .lc-left .profile-btn:hover { background: rgba(255,161,22,0.1); }
-  .cf-left .profile-btn { color: var(--cf-blue); border-color: rgba(74,158,255,0.28); }
-  .cf-left .profile-btn:hover { background: rgba(74,158,255,0.1); }
+        <a class="ach-card" href="https://www.linkedin.com/posts/disha-rathore-8b3702273_prayatan2-teamcraftingfuture-maranaut-activity-7304383129815764992-_qaD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAELYlocBXuBnYr9IJKS4XOUM0kE3Nzi7nbk" target="_blank" rel="noopener">
+          <div class="ach-photo">
+            <span class="ach-badge">2nd Runner Up</span>
+            <span class="ach-link-icon">↗</span>
+            <img src="images/Prayatana/Prayatana.jpeg" alt="Prayatana 2.0 win">
+          </div>
+          <div class="ach-card-body">
+            <b>Prayatana 2.0</b>
+            <span>Achieved 3rd position at Prayatan, competing against multi-disciplinary teams with an innovative tech solution.</span>
+          </div>
+        </a>
 
-  /* ── LC right: embedded card image ── */
-  .lc-img-panel {
-    display: flex; align-items: center; justify-content: center;
-    padding: 22px 26px;
-    background: rgba(0,0,0,0.18);
-  }
-  .lc-img-panel img {
-    width: 100%; max-width: 580px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,161,22,0.1);
-    display: block;
-    min-height: 180px;
-    background: linear-gradient(90deg, var(--surface2) 25%, rgba(255,255,255,0.03) 50%, var(--surface2) 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.6s infinite;
-  }
-  .lc-img-panel img.loaded { animation: none; background: none; min-height: unset; }
-  @keyframes shimmer { to { background-position: -200% 0; } }
+        <a class="ach-card" href="https://www.linkedin.com/in/disha-rathore-8b3702273/" target="_blank" rel="noopener">
+          <div class="ach-photo">
+            <span class="ach-badge">Lead</span>
+            <span class="ach-link-icon">↗</span>
+            <img src="images/gtcc.webp" alt="Galgotias Tech Council">
+          </div>
+          <div class="ach-card-body">
+            <b>Coordinator, AI/ML Club — Galgotias Tech Council</b>
+            <span>Led events, workshops, and community initiatives as Club Coordinator, mentoring peers in coding.</span>
+          </div>
+        </a>
 
-  /* ── CF mid: difficulty bars ── */
-  .diff-section { display: flex; flex-direction: column; gap: 9px; }
-  .diff-section-title {
-    font-family: 'DM Mono', monospace; font-size: 0.58rem;
-    color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 3px;
-  }
-  .diff-row { display: flex; flex-direction: column; gap: 4px; }
-  .diff-meta { display: flex; justify-content: space-between; }
-  .diff-name { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); }
-  .diff-count { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--text); }
-  .diff-track { height: 5px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
-  .diff-fill { height: 100%; border-radius: 3px; width: 0%; transition: width 1.3s cubic-bezier(0.16,1,0.3,1); }
+        <a class="ach-card" href="https://www.linkedin.com/posts/disha-rathore-8b3702273_leetcode-codeforces-competitiveprogramming-activity-7486791874960084992-kw-W?utm_source=share&utm_medium=member_desktop&rcm=ACoAAELYlocBXuBnYr9IJKS4XOUM0kE3Nzi7nbk" target="_blank" rel="noopener">
+          <div class="ach-photo">
+            <span class="ach-badge">Rating</span>
+            <span class="ach-link-icon">↗</span>
+            <img src="images/codeforces/codeforces.png" alt="Codeforces">
+          </div>
+          <div class="ach-card-body">
+            <b>Competitive Programming</b>
+            <span>1950+ rating on LeetCode, 1550+ problems solved across platforms</span>
+            <span>5 ★ on HackerRank in Java and Python.</span>
+          </div>
+        </a>
 
-  /* ── Tags ── */
-  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .tag {
-    font-family: 'DM Mono', monospace; font-size: 0.55rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 5px;
-    background: var(--surface2); border: 1px solid var(--border);
-    color: var(--muted); cursor: default; transition: color 0.2s, border-color 0.2s, background 0.2s;
-  }
-  .cf-mid .tag:hover { color: var(--cf-blue); border-color: rgba(74,158,255,0.3); background: rgba(74,158,255,0.07); }
+      </div>
+      <div class="ach-arrows">
+        <div class="ach-arrow" onclick="document.getElementById('ach-grid').scrollBy({left:-300,behavior:'smooth'})">←</div>
+        <div class="ach-arrow" onclick="document.getElementById('ach-grid').scrollBy({left:300,behavior:'smooth'})">→</div>
+      </div>
+      </div>
+    </div>
+  </section>
 
-  /* ── CF right: rating ring ── */
-  .cf-ring-panel {
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 12px;
-    padding: 20px 14px;
-  }
-  .ring-wrap { position: relative; width: 118px; height: 118px; }
-  .ring-wrap svg { transform: rotate(-90deg); }
-  .ring-center {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 1px;
-  }
-  .ring-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.9rem; line-height: 1; letter-spacing: 0.04em; color: var(--cf-blue);
-  }
-  .ring-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
-  .rank-pill {
-    font-family: 'DM Mono', monospace; font-size: 0.62rem;
-    font-weight: 500; letter-spacing: 0.07em; text-transform: capitalize;
-    padding: 4px 13px; border-radius: 999px;
-    background: rgba(74,158,255,0.1); border: 1px solid rgba(74,158,255,0.3);
-    color: var(--cf-blue); transition: all 0.4s;
-  }
 
-  /* skeleton */
-  .skel {
-    display: inline-block; width: 52px; height: 0.85em;
-    background: linear-gradient(90deg, var(--surface2) 25%, rgba(255,255,255,0.04) 50%, var(--surface2) 75%);
-    background-size: 200% 100%; animation: shimmer 1.5s infinite;
-    border-radius: 4px; vertical-align: middle;
-  }
+<section id="footprints" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec-label">Find me around the web</div>
+    <div class="sec-title">Digital Footprints ✿</div>
+    <div class="profile-grid">
+      <a class="profile-card" href="https://leetcode.com/u/AppleDog6113/" target="_blank">
+        <div class="profile-logo lc-logo"><img src="images/Leetcode/Leetcode.png" alt="LeetCode"></div>
+        <div class="profile-info"><b>LeetCode</b><span>1950+ rating · Knight</span></div>
+      </a>
+      <a class="profile-card" href="https://codeforces.com/profile/DishaRathore" target="_blank">
+        <div class="profile-logo cf-logo"><img src="images/Codeforces/Codeforces.png" alt="Codeforces"></div>
+        <div class="profile-info"><b>Codeforces</b><span>Pupil rated</span></div>
+      </a>
+      <a class="profile-card" href="https://github.com/appledog632" target="_blank">
+        <div class="profile-logo gh-logo"><img src="images/gtihub.png" alt="GitHub"></div>
+        <div class="profile-info"><b>GitHub</b><span>Code & projects</span></div>
+      </a>
+      <a class="profile-card" href="https://www.figma.com/@bdf9a19b_ed66_4" target="_blank">
+        <div class="profile-logo fig-logo"><img src="images/igma.jpeg" alt="Figma"></div>
+        <div class="profile-info"><b>Figma</b><span>Design work</span></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-  /* ── Responsive ── */
-  @media (max-width: 920px) {
-    .hcard.lc { grid-template-columns: 1fr; }
-    .lc-left { border-right: none; border-bottom: 1px solid var(--border); }
-    .hcard.cf { grid-template-columns: 1fr 160px; grid-template-rows: auto auto; }
-    .cf-left { grid-column: 1/-1; border-right: none; border-bottom: 1px solid var(--border); }
-    .cf-mid { border-right: none; }
-  }
-  @media (max-width: 580px) {
-    body { padding: 36px 14px; }
-    .hcard.cf { grid-template-columns: 1fr; }
-    .cf-ring-panel { flex-direction: row; justify-content: flex-start; padding: 20px 22px; }
-  }
-</style>
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h3>Let's create something together ✿</h3>
+      <p>Open to SDE, AI Automation, and Data Analyst roles — reach out anytime.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="https://www.linkedin.com/in/disha-rathore-8b3702273/" target="_blank">LinkedIn</a>
+        <a class="btn ghost" href="mailto:disharathore@example.com">Email</a>
+        <a class="btn ghost" href="https://github.com/appledog632" id="github-link">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="jp">ありがとう</span> — thank you for visiting · © 2026 Disha Rathore
+</footer>
+
 <script>
-async function loadCF() {
-  try {
-    const [infoRes, subsRes, ratingRes] = await Promise.all([
-      fetch('https://codeforces.com/api/user.info?handles=DishaRathore'),
-      fetch('https://codeforces.com/api/user.status?handle=DishaRathore&from=1&count=2000'),
-      fetch('https://codeforces.com/api/user.rating?handle=DishaRathore')
-    ]);
-    const info    = await infoRes.json();
-    const subs    = await subsRes.json();
-    const ratings = await ratingRes.json();
-
-    if (info.status === 'OK') {
-      const u    = info.result[0];
-      const maxR = u.maxRating || u.rating || 0;
-      const rank = (u.maxRank || u.rank || 'newbie').toLowerCase();
-
-      document.getElementById('cf-ring-num').textContent = maxR;
-      document.getElementById('cf-rank').textContent = rank.charAt(0).toUpperCase() + rank.slice(1);
-
-      // Rank → color
-      const rankColors = {
-        newbie: '#9e9e9e', pupil: '#43a047', specialist: '#00acc1',
-        expert: '#1565c0', 'candidate master': '#ab47bc',
-        master: '#fb8c00', 'international master': '#ef6c00',
-        grandmaster: '#e53935', 'international grandmaster': '#b71c1c',
-        'legendary grandmaster': '#b71c1c'
-      };
-      const col = rankColors[rank] || '#4a9eff';
-      const ringNum = document.getElementById('cf-ring-num');
-      const rankPill = document.getElementById('cf-rank');
-      ringNum.style.color = col;
-      rankPill.style.color = col;
-      rankPill.style.borderColor = col + '55';
-      rankPill.style.background  = col + '18';
-
-      // Animate arc: 800–2400 → 0–314
-      const pct = Math.max(0, Math.min((maxR - 800) / 1600, 1));
-      const arc = document.getElementById('cf-arc');
-      arc.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1)';
-      setTimeout(() => arc.setAttribute('stroke-dashoffset', (314 - pct * 314).toFixed(1)), 300);
-    }
-
-    if (subs.status === 'OK') {
-      const seen = new Set();
-      const buckets = [0, 0, 0, 0];
-      subs.result.forEach(s => {
-        if (s.verdict === 'OK') {
-          const key = s.problem.contestId + '_' + s.problem.index;
-          if (!seen.has(key)) {
-            seen.add(key);
-            const r = s.problem.rating || 0;
-            if      (r >= 2000) buckets[3]++;
-            else if (r >= 1700) buckets[2]++;
-            else if (r >= 1300) buckets[1]++;
-            else if (r >= 800)  buckets[0]++;
-          }
-        }
-      });
-      document.getElementById('cf-solved').textContent = seen.size;
-      const maxB = Math.max(...buckets, 1);
-      buckets.forEach((b, i) => {
-        document.getElementById(`d${i+1}`).textContent = b;
-        setTimeout(() => {
-          document.getElementById(`df${i+1}`).style.width = (b / maxB * 100) + '%';
-        }, 400 + i * 100);
-      });
-    }
-
-    if (ratings.status === 'OK') {
-      document.getElementById('cf-contests').textContent = ratings.result.length;
-    }
-
-  } catch(e) {
-    console.warn('CF error:', e);
-    ['cf-ring-num','cf-solved','cf-contests'].forEach(id => {
-      document.getElementById(id).textContent = '—';
-    });
-    document.getElementById('cf-rank').textContent = 'Active';
+  const petalContainer = document.getElementById('petals');
+  const petalCount = 18;
+  for(let i=0;i<petalCount;i++){
+    const p = document.createElement('div');
+    p.className='petal';
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.animationDuration = (10 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    p.style.width = p.style.height = (8 + Math.random()*8) + 'px';
+    p.style.opacity = 0.4 + Math.random()*0.4;
+    petalContainer.appendChild(p);
   }
-}
-loadCF();
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity = 1;
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  },{threshold:0.12});
+
+  document.querySelectorAll('section').forEach(s=>{
+    s.style.opacity = 0;
+    s.style.transform = 'translateY(24px)';
+    s.style.transition = 'opacity .7s ease, transform .7s ease';
+    observer.observe(s);
+  });
 </script>
 
-  <!-- ══════════════════════════════════════════
-       07 ACHIEVEMENTS
-       ══════════════════════════════════════════ -->
-  <section id="achievements" aria-labelledby="achievementsTitle">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow fade-up">// 06&nbsp;&nbsp;Recognition</span>
-        <h2 id="achievementsTitle" class="section-title fade-up">Achievements</h2>
-      </div>
-
-      <div class="achievements-grid">
-
-        <article class="card ach-card fade-up" aria-label="CodeWizards 1st Position">
-          <div class="ach-icon" style="background:none;">
-            <img src="images/codewizard/codewizard.jpeg" alt="CodeWizards" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
-          </div>
-          <span class="ach-label">1st Position</span>
-          <h3 class="ach-title">CodeWizards — 2nd Year</h3>
-          <p class="ach-desc">Won 1st position at CodeWizards, demonstrating strong problem-solving and competitive programming skills.</p>
-          <a href="https://www.linkedin.com/posts/disha-rathore-8b3702273_codewizard-hackthonwinner-ai-activity-7290632362898411522-6F93?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAELYlocBXuBnYr9IJKS4XOUM0kE3Nzi7nbk" target="_blank" rel="noopener"
-             class="btn-teal" id="achCodeWizards">View Proof &#x2197;</a>
-        </article>
-
-        <article class="card ach-card fade-up" aria-label="HackHound 3.0 1st Position">
-          <div class="ach-icon" style="background:none;">
-            <img src="images/hack hound/hack hound.jpeg" alt="HackHound" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
-          </div>
-          <span class="ach-label">1st Position — Led Team</span>
-          <h3 class="ach-title">HackHound 3.0 MLH Hackathon</h3>
-          <p class="ach-desc">Led team to 1st position at HackHound 3.0, a Major League Hacking event. Delivered a working solution under tight deadlines — strengthening leadership and team collaboration.</p>
-          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7301263436032659456/" target="_blank" rel="noopener"
-             class="btn-teal" id="achHackHound">View Proof &#x2197;</a>
-        </article>
-
-        <article class="card ach-card fade-up" aria-label="Prayatan Hackathon 3rd Position">
-          <div class="ach-icon" style="background:none;">
-            <img src="images/Prayatana/Prayatana.jpeg" alt="Prayatan" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
-          </div>
-          <span class="ach-label">3rd Position</span>
-          <h3 class="ach-title">Prayatan Hackathon</h3>
-          <p class="ach-desc">Achieved 3rd position at Prayatan, competing against multi-disciplinary teams with an innovative tech solution.</p>
-          <a href="https://www.linkedin.com/posts/disha-rathore-8b3702273_prayatan2-teamcraftingfuture-maranaut-activity-7304383129815764992-_qaD" target="_blank" rel="noopener"
-             class="btn-teal" id="achPrayatan">View Proof &#x2197;</a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       08 CONTACT
-       ══════════════════════════════════════════ -->
-  <section id="contact" aria-labelledby="contactTitle">
-    <div class="container contact-container">
-      <span class="eyebrow fade-up">// 07&nbsp;&nbsp;Let's Connect</span>
-      <h2 id="contactTitle" class="section-title fade-up">Get in Touch</h2>
-      <p class="contact-subtitle fade-up">Open to internship and SDE opportunities. Let's build something exceptional together.</p>
-
-      <!-- Link buttons -->
-      <div class="contact-links fade-up">
-        <a href="mailto:disharathore632@gmail.com" class="btn btn-primary" id="contactEmail">
-          ✉ Email Me
-        </a>
-        <a href="https://www.linkedin.com/in/disha-rathore-8b3702273" target="_blank" rel="noopener"
-           class="btn btn-ghost" id="contactLinkedIn">LinkedIn &#x2197;</a>
-        <a href="https://github.com/appledog632" target="_blank" rel="noopener"
-           class="btn btn-ghost" id="contactGitHub">GitHub &#x2197;</a>
-        <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener"
-           class="btn btn-ghost" id="contactLeetCode">LeetCode &#x2197;</a>
-      </div>
-
-      <!-- Contact form -->
-      <form class="contact-form card fade-up" id="contactForm" novalidate aria-label="Contact form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="formName" class="form-label">Name</label>
-            <input type="text" id="formName" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label for="formEmail" class="form-label">Email</label>
-            <input type="email" id="formEmail" name="email" class="form-input" placeholder="Your email" required autocomplete="email" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="formMessage" class="form-label">Message</label>
-          <textarea id="formMessage" name="message" class="form-input form-textarea" placeholder="Your message…" required rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary form-submit" id="formSubmit">
-          Send Message &#x2197;
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       FOOTER
-       ══════════════════════════════════════════ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <p class="footer-copy">© 2025 Disha Rathore — Built with purpose.</p>
-      <nav class="footer-links" aria-label="Footer links">
-        <a href="https://github.com/appledog632" target="_blank" rel="noopener" id="footerGitHub">GitHub</a>
-        <a href="https://www.linkedin.com/in/disha-rathore-8b3702273" target="_blank" rel="noopener" id="footerLinkedIn">LinkedIn</a>
-        <a href="https://leetcode.com/u/AppleDog6113/" target="_blank" rel="noopener" id="footerLeetCode">LeetCode</a>
-        <a href="#" target="_blank" rel="noopener" id="footerResume">Resume</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
-
